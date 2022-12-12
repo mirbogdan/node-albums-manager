@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const albums = require("./routes/albums");
 // const tasks = require("./routes/tasks");
 
 //middleware
@@ -9,6 +10,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("<h1>Vinyl Albums manager app</h1>");
 });
+app.use("/api/v1/albums", albums);
 
 //app.get('/api/v1/albums') - get all albums
 //app.post('/api/v1/albums') - create a new album
