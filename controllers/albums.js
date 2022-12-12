@@ -8,15 +8,15 @@ const getAlbum = (req, res) => {
 };
 
 const addAlbum = (req, res) => {
-  res.send("Album added!");
+  res.send(`Album added! This is response: ${JSON.stringify(req.body)}`);
 };
 
 const updateAlbum = (req, res) => {
-  res.send("Updating album!");
+  res.send(`Updating album with id: ${req.params.id}!`);
 };
 
 const deleteAlbum = (req, res) => {
-  res.send("Deleting album!");
+  res.send(`Deleting album with id: ${req.params.id}!`);
 };
 
 module.exports = { getAllAlbums, getAlbum, addAlbum, updateAlbum, deleteAlbum };
