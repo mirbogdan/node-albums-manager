@@ -50,7 +50,10 @@ const deleteAlbum = async (req, res) => {
 const updateAlbum = async (req, res) => {
   try {
     const _id = req.params.id;
-    const albumToUpdate = await Album.findOneAndUpdate({ _id }, req.body);
+    const albumToUpdate = await Album.findOneAndUpdate({ _id }, req.body, {
+      new: true,
+      runValidators: true,
+    });
     if (!albumToUpdate) {
       return res
         .status(404)
