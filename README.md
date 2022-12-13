@@ -1,1 +1,1 @@
-# NodeJS Task-Manager simple App.
+# NodeJS Music Albums-Manager App.

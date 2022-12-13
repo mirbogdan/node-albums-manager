@@ -1,3 +1,14 @@
+const Album = require("../models/albums");
+
+const addAlbum = async (req, res) => {
+  try {
+    const album = await Album.create(req.body);
+    res.status(201).json({ album });
+  } catch (err) {
+    res.status(500).json({ msg: err });
+  }
+};
+
 const getAllAlbums = (req, res) => {
   res.send("All Albums here");
 };
@@ -5,10 +16,6 @@ const getAllAlbums = (req, res) => {
 const getAlbum = (req, res) => {
   const id = req.params.id;
   res.send(`Album with id: ${id} here!`);
-};
-
-const addAlbum = (req, res) => {
-  res.send(`Album added! This is response: ${JSON.stringify(req.body)}`);
 };
 
 const updateAlbum = (req, res) => {
