@@ -13,6 +13,11 @@ const AlbumSchema = new mongoose.Schema({
     trim: true,
     maxLength: [40, "title can not be more than 40 characters"],
   },
+  image: {
+    type: String,
+    trim: true,
+  },
+
   acquired: { type: Boolean, default: false },
 });
 

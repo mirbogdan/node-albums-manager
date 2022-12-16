@@ -1,7 +1,10 @@
 const albumsDOM = document.querySelector(".albums");
+const title = document.querySelector("#title");
 const loadingDOM = document.querySelector(".loading-text");
 const formDOM = document.querySelector(".albums-form");
-const albumInputDOM = document.querySelector(".albums-input");
+const nameInputDOM = document.querySelector(".name");
+const coverInputDOM = document.querySelector(".cover");
+console.log(coverInputDOM.value);
 const formAlertDOM = document.querySelector(".form-alert");
 // Load albums from /api/albums
 const showAlbums = async () => {
@@ -10,6 +13,7 @@ const showAlbums = async () => {
     const {
       data: { albums },
     } = await axios.get("/api/v1/albums");
+    title.innerHTML = `Vinyl Albums Manager. Total: ${albums.length}`;
     if (albums.length < 1) {
       albumsDOM.innerHTML =
         '<h5 class="empty-list">No albums in your list</h5>';
@@ -18,12 +22,12 @@ const showAlbums = async () => {
     }
     const allAlbums = albums
       .map((album) => {
-        const { acquired, _id, title, artist } = album;
+        const { acquired, _id, title, artist, image } = album;
         return `<div class="single-album ${acquired && "album-completed"}">
 <h5><span><i class="far fa-check-circle"></i>
 </span>${title} - ${artist}</h5>
 <div class="album-links">
-<img class="album-cover" src="https://cdn.dc5.ro/img-prod/447211-0.jpg" />
+<img class="album-cover" src=${image} />
 <!-- edit link -->
 <a href="album.html?id=${_id}"  class="edit-link">
 <i class="fas fa-edit"></i>
@@ -67,14 +71,18 @@ albumsDOM.addEventListener("click", async (e) => {
 
 formDOM.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const name = albumInputDOM.value;
+  const name = nameInputDOM.value;
+  const image = coverInputDOM.value;
+  console.log(coverInputDOM.value);
   const title = name.split(" - ")[0];
   const artist = name.split(" - ")[1];
-  console.log(title);
+
+  console.log(title, image);
   try {
-    await axios.post("/api/v1/albums", { title, artist });
+    await axios.post("/api/v1/albums", { title, artist, image });
     showAlbums();
-    albumInputDOM.value = "";
+    nameInputDOM.value = "";
+    coverInputDOM.value = "";
     formAlertDOM.style.display = "block";
     formAlertDOM.textContent = `success, album added`;
     formAlertDOM.classList.add("text-success");
