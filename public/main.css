@@ -40,9 +40,10 @@
   --black: #222;
   --white: #fff;
   --red-light: #f8d7da;
-  --red-dark: #842029;
+  --red-dark: #c71423;
   --green-light: #d1e7dd;
-  --green-dark: #0f5132;
+  --green-dark: #0a9755;
+  --orange-light: #ff6600;
 
   /* typography */
   --headingFont: 'Inconsolata', monospace;
@@ -55,7 +56,7 @@
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
-  --fixed-width: 600px;
+  --fixed-width: 800px;
   /* box shadows */
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -212,17 +213,17 @@ textarea {
   text-transform: capitalize;
 }
 
-.task-form,
-.single-task-form {
+.albums-form,
+.single-album-form {
   width: 90vw;
   max-width: var(--fixed-width);
   margin: 0 auto;
-  margin-top: 6rem;
+  margin-top: 2rem;
 }
-.task-form h4 {
+.album-form h4 {
   text-align: center;
 }
-.task-form .form-alert {
+.album-form .form-alert {
   margin-top: 1rem;
 }
 .submit-btn {
@@ -233,7 +234,7 @@ textarea {
   .form-control {
     display: flex;
   }
-  .task-input {
+  .album-input {
     border-radius: 0;
     border-top-left-radius: var(--borderRadius);
     border-bottom-left-radius: var(--borderRadius);
@@ -323,24 +324,24 @@ form > :last-child {
 }
 
 /*************
-     TASKS
+     albumS
 *************/
 .empty-list {
   text-align: center;
 }
-.tasks-container {
+.albums-container {
   width: 100%;
   width: 90vw;
   max-width: var(--fixed-width);
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding-bottom: 4rem;
 }
-.tasks {
+.albums {
   display: grid;
   gap: 1rem;
 }
-.single-task {
+.single-album {
   padding: 1rem 2.5rem;
   background: var(--white);
   border-radius: var(--borderRadius);
@@ -350,35 +351,40 @@ form > :last-child {
   justify-content: space-between;
   align-items: center;
 }
-.single-task:hover {
+.single-album:hover {
   box-shadow: var(--shadow-4);
 }
-.single-task h5 {
+.single-album h5 {
   margin-bottom: 0;
 }
-.single-task span {
+.single-album span {
   display: inline-block;
   width: 0.5rem;
   height: 0.5rem;
   margin-left: -1.25rem;
   margin-right: 1.5rem;
 }
-.single-task .fa-check-circle {
-  font-size: 1rem;
+.single-album .fa-check-circle {
+  font-size: 1.2rem;
   color: var(--green-dark);
   visibility: hidden;
 }
-.task-completed h5 {
+.album-completed h5 {
   text-decoration: line-through;
 }
-.task-completed .fa-check-circle {
+.album-completed .fa-check-circle {
   visibility: visible;
 }
 .loading-text {
   visibility: hidden;
 }
-/* Task Links */
-.task-links {
+
+.album-cover{
+  height: 4rem;
+  margin-right: 1rem;
+}
+/* album Links */
+.album-links {
   display: flex;
   align-items: center;
   gap: 0 0.5rem;
@@ -398,19 +404,19 @@ form > :last-child {
 }
 
 /*************
-   SINGLE TASK
+   SINGLE album
 *************/
 
-.single-task-form h4 {
+.single-album-form h4 {
   text-align: center;
 }
 
-.single-task-form p {
+.single-album-form p {
   margin-bottom: 0;
   margin-top: 0;
 }
 
-.single-task-form .form-control {
+.single-album-form .form-control {
   display: grid;
   grid-template-columns: 150px 1fr;
   align-items: center;
@@ -419,12 +425,12 @@ form > :last-child {
   margin-bottom: 0.75rem;
 }
 
-.single-task-form label {
+.single-album-form label {
   margin-bottom: 0;
   font-size: 1rem;
 }
 
-.task-edit-completed {
+.album-edit-completed {
   width: auto;
 }
 .back-link {
@@ -440,7 +446,7 @@ form > :last-child {
   opacity: 0.75;
 }
 
-.single-task-form .form-alert {
+.single-album-form .form-alert {
   text-align: center;
   margin-top: 1rem;
 }

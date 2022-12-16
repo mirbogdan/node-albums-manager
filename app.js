@@ -5,11 +5,9 @@ const connectDB = require("./db/connect");
 require("dotenv").config();
 //middleware
 app.use(express.json());
+app.use(express.static("./public"));
 
 //routes
-app.get("/", (req, res) => {
-  res.send("<h1>Vinyl Albums manager app</h1>");
-});
 app.use("/api/v1/albums", albums);
 
 //app.get('/api/v1/albums') - get all albums
