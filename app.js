@@ -3,13 +3,14 @@ const app = express();
 const albums = require("./routes/albums");
 const connectDB = require("./db/connect");
 require("dotenv").config();
+const uploadFile = require("express-fileupload");
 //middleware
-app.use(express.json());
 app.use(express.static("./public"));
+app.use(express.json());
+app.use(uploadFile());
 
 //routes
 app.use("/api/v1/albums", albums);
-
 //app.get('/api/v1/albums') - get all albums
 //app.post('/api/v1/albums') - create a new album
 //app.get('/api/v1/albums/:id') - get a single album

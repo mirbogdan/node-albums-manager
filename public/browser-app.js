@@ -4,7 +4,6 @@ const loadingDOM = document.querySelector(".loading-text");
 const formDOM = document.querySelector(".albums-form");
 const nameInputDOM = document.querySelector(".name");
 const coverInputDOM = document.querySelector(".cover");
-console.log(coverInputDOM.value);
 const formAlertDOM = document.querySelector(".form-alert");
 // Load albums from /api/albums
 const showAlbums = async () => {
@@ -72,8 +71,8 @@ albumsDOM.addEventListener("click", async (e) => {
 formDOM.addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = nameInputDOM.value;
-  const image = coverInputDOM.value;
-  console.log(coverInputDOM.value);
+  const image =
+    coverInputDOM.value.length > 0 ? coverInputDOM.value : undefined;
   const title = name.split(" - ")[0];
   const artist = name.split(" - ")[1];
 

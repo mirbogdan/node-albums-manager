@@ -15,7 +15,7 @@ const AlbumSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    trim: true,
+    default: "/uploads/cover.jpg",
   },
 
   acquired: { type: Boolean, default: false },
