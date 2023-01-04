@@ -8,7 +8,7 @@ const uploadCover = async (req, res) => {
   );
   await req.files.cover.mv(imagePath);
 
-  return res.status(200).json({ image: { src: `/uploads/${coverToUpload}` } });
+  return res.status(200).json({ cover: { src: `/uploads/${coverToUpload}` } });
 };
 
 module.exports = { uploadCover };

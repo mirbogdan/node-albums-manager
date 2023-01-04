@@ -26,24 +26,24 @@
           type="text"
           name="name"
           class="albums-input name"
-          placeholder="e.g. Thriller - Michael Jackson =>  Use a comma please as separator."
+          placeholder="e.g. Thriller"
           required
          />
         </div>
         <div>
           <input
           type="text"
-          name="cover"
-          class="albums-input cover"
-          placeholder="e.g. https://cdn.dc5.ro/img-prod/8718469534364-2926346.jpg"
-          
+          name="artist"
+          class="albums-input artist"
+          placeholder="e.g. Michael Jackson"
+          required
         /> 
         </div>
   
-        <div class="wrapper">
-          <input class="file-input" type="file" name="file" hidden>
-          <i class="fas fa-cloud-upload-alt"></i>
-          <p>Browse a Cover Photo to Upload</p>
+        <div >
+          <label for="image" class="form-label">Browse a Cover Photo to Upload</label>
+          <input type="file" id="cover" accept="image/*" >
+       
         </div>
         <section class="progress-area"></section>
         <section class="uploaded-area"></section>
