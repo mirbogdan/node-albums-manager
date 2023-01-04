@@ -7,6 +7,7 @@ const {
   updateAlbum,
   deleteAlbum,
 } = require("../controllers/albums");
+const { uploadCover } = require("../controllers/uploadCover");
 
 // router.get("/", getAlbums);
 // router.post("/", addAlbum);
@@ -16,5 +17,6 @@ const {
 
 router.route("/").get(getAllAlbums).post(addAlbum);
 router.route("/:id").get(getAlbum).patch(updateAlbum).delete(deleteAlbum);
+router.route("/uploads").post(uploadCover);
 
 module.exports = router;
